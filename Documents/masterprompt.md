@@ -1,10 +1,10 @@
-# MASTER IMPLEMENTATION PROMPT — NAZURI COLLECTIONS WEBSITE
+# MASTER IMPLEMENTATION PROMPT — GRANT FASHIONS WEBSITE
 
 ## 1. YOUR ROLE
 
 Act as a senior frontend developer, UI/UX designer, software architect, and quality-assurance engineer.
 
-Your task is to professionally design and implement the **Nazuri Collections** website from scratch inside the currently opened Visual Studio Code project.
+Your task is to professionally design and implement the **Grant Fashions** website from scratch inside the currently opened Visual Studio Code project.
 
 You have permission to inspect, create, edit, and organize project files as necessary to complete the website.
 
@@ -68,7 +68,7 @@ Then proceed with implementation. Do not wait for approval for routine decisions
 
 ## 4. PROJECT IDENTITY
 
-**Brand:** Nazuri Collections
+**Brand:** Grant Fashions
 
 **Business:** Women's fashion and modest fashion boutique.
 
@@ -322,7 +322,7 @@ Implement the homepage in this order:
 3. Editorial hero.
 4. Shop by Collection.
 5. Featured Products.
-6. Brand Story / About Nazuri.
+6. Brand Story / About Grant.
 7. Social Discovery section.
 8. Footer.
 

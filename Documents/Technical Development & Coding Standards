@@ -1,0 +1,536 @@
+# NAZURI COLLECTIONS
+## Technical Development Guide & Coding Standards
+
+**Project:** Nazuri Collections Showcase Website  
+**Document:** 02 – Technical Development Instructions  
+**Development Environment:** Windows PC + Visual Studio Code  
+**Repository:** nazuricollections-showcase  
+**Primary Branch:** main  
+**Status:** Initial development from a clean repository
+
+---
+
+# 1. Development Objective
+
+Build the Nazuri Collections website from the beginning using a lightweight, maintainable and responsive frontend architecture.
+
+The implementation must follow Document 01: Project Vision, Brand Strategy and Website Requirements.
+
+All development decisions must prioritize:
+
+- Code quality.
+- Maintainability.
+- Performance.
+- Responsiveness.
+- Accessibility.
+- Security.
+- Visual consistency.
+- Reliable functionality.
+
+# 2. Mandatory Technology Stack
+
+Use the following technologies:
+
+| Technology | Responsibility |
+|---|---|
+| HTML5 | Semantic page structure |
+| CSS3 | Custom styling and visual design |
+| Bootstrap 5 | Responsive layout and selected UI components |
+| Vanilla JavaScript | Interactions and dynamic frontend functionality |
+| Git | Version control |
+| GitHub | Remote source code repository |
+
+Use Bootstrap 5 and plain JavaScript.
+
+Do not introduce React, Vue, Angular, Laravel, Django, Node.js backend frameworks or other unnecessary application frameworks.
+
+A lightweight static frontend is the required architecture.
+
+# 3. Project Architecture
+
+Use a clean and organized directory structure.
+
+Recommended initial structure:
+
+```text
+showcase/
+│
+├── index.html
+│
+├── pages/
+│   ├── abayas.html
+│   ├── magauni.html
+│   ├── about.html
+│   └── contact.html
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── responsive.css
+│   │   └── components.css
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── navigation.js
+│   │   ├── products.js
+│   │   └── components.js
+│   │
+│   ├── images/
+│   │   ├── branding/
+│   │   ├── hero/
+│   │   ├── abayas/
+│   │   ├── magauni/
+│   │   ├── about/
+│   │   └── icons/
+│   │
+│   └── fonts/
+│
+├── docs/
+│   ├── Project Vision & Requirement.md
+│   └── Technical Development & coding.md
+│
+├── .gitignore
+├── README.md
+└── LICENSE (only if appropriate and approved)
+```
+
+This is the intended architecture, not permission to create every file immediately.
+
+Inspect the requirements before deciding whether additional files are necessary.
+
+Avoid unnecessary files and duplicated functionality.
+
+# 4. Coding Standards
+
+## 4.1 HTML
+
+- Use HTML5 semantic elements.
+- Use meaningful page titles.
+- Include appropriate meta descriptions.
+- Use descriptive class names.
+- Maintain consistent indentation.
+- Avoid duplicated markup where practical.
+- Include appropriate image alt attributes.
+- Ensure valid and accessible HTML structure.
+
+Prefer semantic elements such as:
+
+```html
+<header>
+<nav>
+<main>
+<section>
+<article>
+<footer>
+```
+
+Avoid using generic div elements for everything.
+
+## 4.2 CSS
+
+- Organize styles logically.
+- Use CSS variables for brand colors.
+- Avoid unnecessary specificity.
+- Avoid excessive !important declarations.
+- Maintain consistent spacing.
+- Use reusable component styles.
+- Prevent style duplication.
+- Keep responsive rules organized.
+
+Example:
+
+```css
+:root {
+    --color-charcoal: #1F2328;
+    --color-background: #F5F5F5;
+    --color-grey: #B5B5B5;
+    --color-gold: #C9A66B;
+    --color-white: #FFFFFF;
+}
+```
+
+Build reusable styles for:
+
+- Buttons.
+- Navigation.
+- Product cards.
+- Collection sections.
+- Typography.
+- Containers.
+- Footer.
+- Interactive elements.
+
+## 4.3 JavaScript
+
+Use modern Vanilla JavaScript.
+
+Standards:
+
+- Use const and let.
+- Prefer modular and reusable functions.
+- Avoid unnecessary global variables.
+- Use event listeners properly.
+- Validate elements before interacting with them.
+- Avoid duplicate event listeners.
+- Handle errors appropriately.
+- Keep product data separate from presentation logic where practical.
+- Avoid unnecessary JavaScript dependencies.
+
+Do not use JavaScript for functionality that can be implemented more efficiently with HTML or CSS.
+
+# 5. Design System Implementation
+
+Implement the visual direction defined in Document 01.
+
+Maintain consistent:
+
+- Colors.
+- Typography.
+- Spacing.
+- Border radii.
+- Buttons.
+- Image presentation.
+- Navigation.
+- Product card layouts.
+- Hover and focus states.
+
+Create a coherent design system before building multiple pages.
+
+Do not introduce random colors or unrelated component styles.
+
+Use gold as a restrained accent rather than the dominant color.
+
+# 6. User Interface Requirements
+
+## 6.1 Navigation
+
+Implement:
+
+- Desktop navigation.
+- Responsive mobile navigation.
+- Active navigation states.
+- Hover and focus states.
+- Functional page links.
+- Accessible mobile menu controls.
+
+Use Bootstrap components where they provide genuine value.
+
+## 6.2 Product Cards
+
+All product cards should have a consistent structure.
+
+A card may contain:
+
+- Product image.
+- Product name.
+- Product category.
+- Available color information.
+- Short description.
+- Product details link.
+- WhatsApp inquiry action.
+
+Do not invent product prices, sizes, availability or descriptions.
+
+Only display information that has been provided or verified.
+
+## 6.3 Product Collections
+
+Keep product information organized separately from HTML presentation when practical.
+
+Use a lightweight JavaScript data structure for product information if it simplifies maintenance.
+
+Avoid building a complicated product management system.
+
+## 6.4 WhatsApp Integration
+
+Create a centralized configuration for the official WhatsApp number.
+
+Example placeholder:
+
+```javascript
+const SITE_CONFIG = {
+    whatsappNumber: "REPLACE_WITH_NAZURI_WHATSAPP_NUMBER"
+};
+```
+
+Do not invent or publish a fake phone number.
+
+Do not expose sensitive information in frontend configuration.
+
+# 7. Responsive Development
+
+Use a mobile-first approach.
+
+Test the website at representative viewport widths:
+
+- 320px.
+- 375px.
+- 425px.
+- 768px.
+- 1024px.
+- 1440px.
+
+Verify:
+
+- Navigation behavior.
+- Product grid arrangement.
+- Image dimensions.
+- Text wrapping.
+- Button sizes.
+- Section spacing.
+- Footer arrangement.
+- Horizontal overflow.
+
+Never assume a website is responsive simply because Bootstrap is installed.
+
+Test the actual implementation.
+
+# 8. Image and Asset Management
+
+Product images are supplied by the project owner.
+
+Requirements:
+
+- Preserve original product photography.
+- Use local assets.
+- Optimize image sizes.
+- Use appropriate image formats.
+- Avoid unnecessary duplicate images.
+- Use descriptive filenames.
+- Specify image dimensions or aspect ratios where appropriate.
+- Use lazy loading for suitable below-the-fold images.
+- Avoid lazy loading the main hero image when it would delay the initial visual presentation.
+
+Do not download random images from the internet to fill product sections.
+
+If an image is missing, use a clear placeholder rather than inventing product photography.
+
+# 9. Performance Optimization
+
+The website must be lightweight.
+
+Apply:
+
+- Optimized images.
+- Efficient CSS.
+- Efficient JavaScript.
+- Minimal external dependencies.
+- Appropriate browser caching through hosting configuration.
+- Lazy loading where suitable.
+- Avoidance of unnecessary animation.
+- Avoidance of unnecessary network requests.
+
+Avoid loading multiple libraries that perform the same task.
+
+# 10. SEO and Discoverability
+
+Implement basic search engine optimization.
+
+Each page must have:
+
+- A unique title.
+- A meaningful meta description.
+- Appropriate heading hierarchy.
+- Descriptive image alt text.
+- Semantic HTML.
+- Relevant internal links.
+- Canonical URL when the final production domain is known.
+
+Also prepare:
+
+- Favicon.
+- Open Graph metadata.
+- Social sharing image when supplied.
+- robots.txt when appropriate.
+- sitemap.xml when the production URL is established.
+
+Do not invent a production domain.
+
+# 11. Accessibility
+
+Follow practical WCAG accessibility principles.
+
+Ensure:
+
+- Keyboard-accessible navigation.
+- Visible focus states.
+- Sufficient text contrast.
+- Descriptive labels.
+- Appropriate alt text.
+- Accessible interactive controls.
+- Correct button and link semantics.
+- Respect for reduced-motion preferences.
+
+Do not communicate information through color alone.
+
+# 12. Security
+
+Even though this is a static website:
+
+- Avoid inserting untrusted content through unsafe innerHTML.
+- Validate and encode dynamic content appropriately.
+- Avoid exposing secrets or private tokens.
+- Do not store sensitive customer information in frontend code.
+- Use HTTPS in production.
+- Use trusted dependencies.
+- Avoid unnecessary third-party scripts.
+
+# 13. Browser Compatibility
+
+Test using current versions of:
+
+- Google Chrome.
+- Microsoft Edge.
+- Firefox where available.
+
+Verify both desktop and mobile layouts.
+
+# 14. Development Workflow
+
+Follow this development sequence.
+
+## Phase 1 – Repository Preparation
+
+- Verify Git configuration.
+- Verify GitHub remote.
+- Establish the main branch.
+- Create project documentation.
+- Create an appropriate .gitignore.
+- Confirm the initial project structure.
+
+## Phase 2 – Foundation
+
+- Establish the HTML structure.
+- Configure Bootstrap 5.
+- Establish CSS variables.
+- Implement typography.
+- Build shared components.
+- Configure JavaScript files.
+
+## Phase 3 – Core Layout
+
+- Build the navigation.
+- Build the homepage hero.
+- Build collection sections.
+- Build product cards.
+- Build the footer.
+
+## Phase 4 – Remaining Pages
+
+- Abayas.
+- Magauni / Gowns.
+- About Us.
+- Contact.
+- Product details where appropriate.
+
+## Phase 5 – Functionality
+
+- Mobile navigation.
+- Product presentation.
+- Collection filtering where useful.
+- Product inquiry links.
+- Social media links.
+- Interactive components.
+
+## Phase 6 – Quality Assurance
+
+- Validate HTML.
+- Check console errors.
+- Check broken links.
+- Check image loading.
+- Test responsiveness.
+- Test accessibility.
+- Test navigation.
+- Optimize performance.
+
+## Phase 7 – Deployment
+
+- Review the complete project.
+- Commit verified changes.
+- Push to GitHub.
+- Configure static hosting.
+- Test the deployed website.
+- Verify production links and metadata.
+
+# 15. Git and Version Control Rules
+
+Use Git throughout development.
+
+Recommended commit messages:
+
+```text
+Initial project setup
+Build responsive navigation
+Implement homepage hero section
+Add product collection layouts
+Implement product inquiry actions
+Improve mobile responsiveness
+Optimize images and performance
+Prepare production deployment
+```
+
+Rules:
+
+- Commit meaningful changes.
+- Avoid committing temporary files.
+- Never commit passwords or secrets.
+- Do not force-push without a justified reason.
+- Test before committing major functionality.
+- Keep the main branch stable.
+- Use feature branches when working on substantial independent changes.
+
+# 16. AI Coding Agent Instructions
+
+Any AI coding agent assisting with this project must follow these rules.
+
+1. Read both project documents before implementing changes.
+2. Inspect the existing project structure before modifying files.
+3. Understand the requested task before writing code.
+4. Do not redesign approved sections without permission.
+5. Do not introduce unnecessary frameworks.
+6. Do not create unnecessary dependencies.
+7. Do not invent business information.
+8. Do not invent product information.
+9. Do not invent contact details.
+10. Do not download product photographs without authorization.
+11. Do not remove working functionality without justification.
+12. Maintain consistent design patterns.
+13. Test changes after implementation.
+14. Report files created or modified.
+15. Explain important technical decisions.
+16. Report unresolved issues honestly.
+
+When implementing a feature, modify only the files necessary for that feature.
+
+Avoid replacing entire files when a targeted modification is sufficient.
+
+If an implementation decision could significantly change the brand experience or project architecture, request approval before proceeding.
+
+# 17. Definition of Done
+
+A feature is complete only when:
+
+- Its intended functionality works.
+- Its design follows the established system.
+- It is responsive.
+- It has no known critical console errors.
+- It does not break existing functionality.
+- Its links and buttons work.
+- Its implementation is maintainable.
+- Its relevant changes have been tested.
+
+The complete website is ready for deployment only after a final review of all pages and functionality.
+
+---
+
+# FINAL DEVELOPMENT PRINCIPLE
+
+Build a premium fashion showcase, not an unnecessarily complicated e-commerce application.
+
+Prioritize exceptional visual presentation, reliable functionality, lightweight architecture and maintainable code.
+
+Every feature must have a clear purpose.
+
+Every page must contribute to the Nazuri Collections brand experience.
+
+**The final result must look professional, modern, elegant, trustworthy and attractive to potential customers.**

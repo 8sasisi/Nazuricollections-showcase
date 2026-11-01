@@ -1,0 +1,323 @@
+# NAZURI COLLECTIONS
+## Project Vision, Brand Strategy & Website Requirements
+
+**Project:** Nazuri Collections Showcase Website  
+**Document:** 01 – Project Vision & Requirements  
+**Status:** Approved foundation for development  
+**Brand tagline:** Premium Abayas and Gowns in Town  
+**Established:** Since 2023
+
+---
+
+# 1. Project Overview
+
+Nazuri Collections is a women's fashion brand specializing in elegant, premium and contemporary modest fashion, particularly abayas, gowns and dresses.
+
+The purpose of this project is to build a modern, visually appealing and professional online fashion showcase that communicates the brand's identity, displays its fashion collections and encourages potential customers to make inquiries.
+
+The website must create a premium shopping experience without implementing a complicated e-commerce infrastructure.
+
+It should feel like visiting a well-organized luxury fashion boutique.
+
+# 2. Project Vision
+
+Build a distinctive digital presence for Nazuri Collections that:
+
+- Creates a strong and recognizable brand identity.
+- Presents fashion products through high-quality visual experiences.
+- Makes product discovery simple and enjoyable.
+- Builds customer confidence and brand credibility.
+- Encourages inquiries through WhatsApp and social media.
+- Provides an excellent experience on mobile phones, tablets and desktops.
+
+The website should be visually competitive with contemporary premium fashion boutiques.
+
+# 3. Target Audience
+
+The primary audience consists of women interested in:
+
+- Elegant abayas.
+- Modern modest fashion.
+- Premium gowns.
+- Stylish dresses.
+- Two-piece outfits.
+- Special occasion outfits.
+
+The interface should appeal to customers who value elegance, quality, simplicity and presentation.
+
+# 4. Brand Identity and Visual Direction
+
+## 4.1 Brand Personality
+
+Nazuri Collections should communicate:
+
+- Elegance.
+- Sophistication.
+- Confidence.
+- Femininity.
+- Exclusivity.
+- Quality.
+- Modern fashion.
+
+Avoid a cheap-looking, crowded or overly decorative interface.
+
+## 4.2 Design Inspiration
+
+Use the visual principles of premium fashion brands such as Zara and COS as inspiration.
+
+Do not copy their websites, layouts, assets or branding.
+
+Develop a unique Nazuri Collections identity.
+
+## 4.3 Color Palette
+
+Use the following initial brand palette:
+
+| Color | Hex | Purpose |
+|---|---|---|
+| Charcoal | #1F2328 | Primary dark surfaces and text |
+| Off-white | #F5F5F5 | Main backgrounds |
+| Silver Grey | #B5B5B5 | Secondary elements |
+| Champagne Gold | #C9A66B | Accents and highlights |
+| White | #FFFFFF | Clean content surfaces |
+
+Gold should be used selectively for active navigation, subtle highlights and important details.
+
+Do not overuse gold gradients, shadows or decorative borders.
+
+## 4.4 Typography
+
+Use an elegant, readable typographic system.
+
+Recommended direction:
+
+- Elegant serif typography for selected headings.
+- Modern sans-serif typography for body text and navigation.
+- Clear visual hierarchy.
+- Consistent font weights and spacing.
+- Comfortable readability on mobile devices.
+
+Typography must enhance the fashion imagery rather than compete with it.
+
+# 5. Website Structure and Pages
+
+The website should contain the following main pages.
+
+## 5.1 Home Page
+
+The homepage is the most important brand presentation page.
+
+It should include:
+
+1. Elegant announcement or promotional area, only when relevant.
+2. Responsive navigation.
+3. Strong hero section with compelling fashion photography.
+4. Clear brand introduction.
+5. Featured collections.
+6. Selected product highlights.
+7. Brand introduction or About preview.
+8. Customer inquiry call-to-action.
+9. Instagram/social media discovery section where suitable.
+10. Professional footer.
+
+The hero section must communicate the brand's identity immediately.
+
+Avoid excessive text and unnecessary sections.
+
+## 5.2 Abayas Page
+
+A dedicated collection page for abayas.
+
+Requirements:
+
+- Attractive collection introduction.
+- Well-organized product grid.
+- Consistent image presentation.
+- Product names.
+- Available colors where supplied.
+- Product descriptions where supplied.
+- Optional category filtering and sorting if useful.
+- Clear product inquiry actions.
+
+## 5.3 Magauni / Gowns Page
+
+A dedicated collection page for gowns and dresses.
+
+Requirements:
+
+- Distinctive collection presentation.
+- High-quality product photography.
+- Consistent product cards.
+- Product information.
+- Available color variations where applicable.
+- WhatsApp inquiry action.
+
+## 5.4 Product Details
+
+Where appropriate, provide an individual product detail experience.
+
+It may include:
+
+- Larger product photography.
+- Product name.
+- Product description.
+- Available colors.
+- Other supplied product information.
+- WhatsApp inquiry action.
+
+Product detail functionality must not become a shopping cart or checkout system.
+
+## 5.5 About Us Page
+
+Explain the Nazuri Collections brand story.
+
+Communicate:
+
+- Who Nazuri Collections is.
+- Its fashion identity.
+- Its commitment to elegant fashion presentation.
+- Its journey since 2023, where applicable.
+- Its customer-oriented approach.
+
+Do not invent company history, achievements, addresses or business claims.
+
+## 5.6 Contact Page
+
+Provide convenient ways to contact the brand.
+
+Include:
+
+- WhatsApp contact.
+- Instagram.
+- TikTok.
+- Other verified contact information when provided.
+
+Contact details must be configurable.
+
+Never invent a WhatsApp number or social media account.
+
+Use clear placeholders until genuine contact information is supplied.
+
+# 6. Product Presentation Requirements
+
+Product photography is a major part of this website.
+
+The product showcase must:
+
+- Preserve the original appearance of supplied garments.
+- Avoid stretching or distorting images.
+- Use consistent image ratios where appropriate.
+- Provide suitable image cropping.
+- Maintain good image quality.
+- Support different product colors and variations.
+- Display products in an organized and attractive way.
+
+Use product photographs supplied by the project owner.
+
+Do not download or substitute random product images from the internet.
+
+Do not alter the actual garment design when processing product images.
+
+# 7. User Experience Requirements
+
+The website must provide:
+
+- Intuitive navigation.
+- Clear visual hierarchy.
+- Consistent spacing.
+- Responsive product grids.
+- Easy-to-understand buttons.
+- Smooth but restrained interactions.
+- Useful hover effects.
+- Accessible navigation.
+- Clear loading and empty states where applicable.
+- Helpful feedback for interactive elements.
+
+Mobile users must receive the same quality of experience as desktop users.
+
+# 8. Responsive Design
+
+Support:
+
+- Small mobile devices.
+- Large mobile devices.
+- Tablets.
+- Laptops.
+- Desktop screens.
+
+The mobile experience must include:
+
+- An elegant mobile navigation menu.
+- Readable typography.
+- Properly sized buttons.
+- Appropriate product grid columns.
+- Images that fit the viewport.
+- No horizontal overflow.
+- Touch-friendly controls.
+
+# 9. Conversion and Customer Engagement
+
+The primary conversion goal is to encourage customers to contact Nazuri Collections.
+
+Implement:
+
+- WhatsApp inquiry links.
+- Clear collection navigation.
+- Product-specific inquiry actions.
+- Social media links.
+- Contact calls-to-action.
+
+WhatsApp links must use a configurable placeholder until the official number is supplied.
+
+The website should not falsely imply that an order, payment or reservation has been completed.
+
+# 10. Performance and Trust
+
+The website should:
+
+- Load quickly.
+- Use optimized local images.
+- Avoid unnecessary animations.
+- Avoid unnecessary external dependencies.
+- Present consistent and accurate information.
+- Have functional navigation and links.
+- Display a professional brand identity.
+
+# 11. Scope and Limitations
+
+This is a lightweight website showcase, not a full e-commerce platform.
+
+The following are outside the current project scope:
+
+- Backend server.
+- Database.
+- Customer registration and authentication.
+- Shopping cart.
+- Online checkout.
+- Payment gateway.
+- Order management system.
+- Inventory management system.
+- Admin dashboard.
+
+Do not introduce these systems without explicit approval.
+
+# 12. Definition of Success
+
+The project will be considered successful when:
+
+1. The website communicates a distinctive premium fashion identity.
+2. Visitors can easily discover different collections.
+3. Product images are displayed professionally.
+4. All navigation and interactive elements work.
+5. The website performs well on mobile and desktop.
+6. Customers can easily contact the business.
+7. The website is accessible online through a reliable hosting solution.
+8. The codebase remains lightweight and maintainable.
+
+---
+
+**Final Direction**
+
+Nazuri Collections must look and feel like a modern premium fashion boutique, not a generic product listing website.
+
+Every design and development decision must support elegance, clarity, product presentation, usability and customer engagement.

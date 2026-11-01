@@ -74,6 +74,19 @@ const SITE_CONFIG = {
   }
 };
 
+function escapeHtml(value = "") {
+  return String(value).replace(/[&<>"']/g, (char) => {
+    const map = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    };
+    return map[char] || char;
+  });
+}
+
 function renderProductCards(containerId, products) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -83,12 +96,12 @@ function renderProductCards(containerId, products) {
       (product) => `
         <div class="col-sm-6 col-lg-3">
           <article class="product-card">
-            <div class="product-image" style="background-image: linear-gradient(180deg, rgba(31,35,40,0.14), rgba(31,35,40,0.32)), url('${product.image}')"></div>
+            <div class="product-image" style="background-image: linear-gradient(180deg, rgba(31,35,40,0.14), rgba(31,35,40,0.32)), url('${escapeHtml(product.image)}')"></div>
             <div class="product-body">
-              <p class="category">${product.category}</p>
-              <h3>${product.name}</h3>
-              <p class="meta">${product.colors.join(" • ")}</p>
-              <p>${product.description}</p>
+              <p class="category">${escapeHtml(product.category)}</p>
+              <h3>${escapeHtml(product.name)}</h3>
+              <p class="meta">${escapeHtml(product.colors.join(" • "))}</p>
+              <p>${escapeHtml(product.description)}</p>
               <a class="text-link" href="contact.html">Inquire now <i class="bi bi-arrow-right"></i></a>
             </div>
           </article>

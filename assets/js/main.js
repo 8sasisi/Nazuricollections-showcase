@@ -1,7 +1,7 @@
 const SITE_CONFIG = {
-  whatsappNumber: "REPLACE_WITH_NAZURI_WHATSAPP_NUMBER",
+  whatsappNumber: "255767557234",
   instagram: "https://www.instagram.com/nazuri_collections?rpxt=MTAxbjE5YnJ2ejRicw==",
-  tiktok: "https://www.tiktok.com",
+  tiktok: "https://www.tiktok.com/@nazuri.collections?_r=1&_t=ZS-9B3DpKO2bY7",
   products: {
     abayas: [
       {

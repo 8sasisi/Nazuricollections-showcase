@@ -1,6 +1,6 @@
-﻿# Nazuri Collections Showcase
+﻿# Grant Fashions Showcase
 
-A premium-fashion static frontend for Nazuri Collections, built to reflect the brand’s elegant, contemporary modest fashion identity.
+A premium-fashion static frontend for Grant Fashions, built to reflect the brand’s elegant, contemporary modest fashion identity.
 
 ## Features
 - Premium editorial homepage with luxury boutique styling

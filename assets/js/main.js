@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const fullName = [firstName, lastName].filter(Boolean).join(" ");
     const whatsappMessage = encodeURIComponent(
-      `Hello Nazuri Collections, my name is ${fullName}.\nEmail: ${email}\n\n${message}`
+      `Hello Grant Fashions, my name is ${fullName}.\nEmail: ${email}\n\n${message}`
     );
 
     window.open(`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${whatsappMessage}`, "_blank", "noopener,noreferrer");

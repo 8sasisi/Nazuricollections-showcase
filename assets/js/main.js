@@ -68,10 +68,6 @@ function updateContactLinks(settings = {}) {
   document.querySelectorAll(".social-links").forEach((container) => {
     container.hidden = !container.querySelector("a:not([hidden])");
   });
-  const contactNotice = document.querySelector("[data-contact-unavailable]");
-  if (contactNotice) {
-    contactNotice.hidden = Boolean(document.querySelector(".contact-list a:not([hidden])"));
-  }
 }
 
 function updateEditableCopy(content) {
@@ -258,6 +254,36 @@ function initContactForm(settings) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  initMobileMenuFallback();
   const [settings] = await Promise.all([loadSiteContent(), loadProducts()]);
   initContactForm(settings);
 });
+
+function initMobileMenuFallback() {
+  const menu = document.getElementById("mobileMenu");
+  const toggler = document.querySelector("[data-menu-toggle]");
+  if (!menu || !toggler) return;
+
+  const closeMenu = () => {
+    menu.classList.remove("show");
+    document.body.classList.remove("menu-open");
+    toggler.setAttribute("aria-expanded", "false");
+    toggler.focus();
+  };
+  toggler.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("show");
+    document.body.classList.toggle("menu-open", isOpen);
+    toggler.setAttribute("aria-expanded", String(isOpen));
+    if (isOpen) menu.querySelector('[data-bs-dismiss="offcanvas"]')?.focus();
+  });
+  menu.querySelector("[data-menu-close]")?.addEventListener("click", closeMenu);
+  menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  document.addEventListener("click", (event) => {
+    if (document.body.classList.contains("menu-open") && !menu.contains(event.target) && !toggler.contains(event.target)) {
+      closeMenu();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+}

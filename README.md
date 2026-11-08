@@ -35,7 +35,7 @@ node --check assets\js\admin.js
 3. In MySQL, create a database and a dedicated, least-privilege application user. For example, connect to MySQL as a database administrator and run the following after choosing a unique password:
 
    ```sql
-   CREATE DATABASE grant_showacase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   CREATE DATABASE grant_fashion CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
    CREATE USER 'grant_fashion_app'@'localhost' IDENTIFIED BY 'REPLACE_WITH_A_UNIQUE_PASSWORD';
    GRANT SELECT, INSERT, UPDATE, DELETE
        ON grant_fashion.* TO 'grant_fashion_app'@'localhost';

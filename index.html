@@ -11,6 +11,9 @@
       content="Grant Fashion presents premium abayas and gowns in town. Since 2023."
     />
     <title>Grant Fashion | Premium Abayas and Gowns</title>
+    <meta property="og:site_name" content="Grant Fashion" />
+    <meta property="og:title" content="Grant Fashion | Premium Abayas and Gowns" />
+    <meta property="og:description" content="Grant Fashion presents premium abayas and gowns in town. Since 2023." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,10 +35,11 @@
       <nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-4 py-3">
         <div class="container-xl">
           <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Grant Fashion home">
-            <span class="brand-mark" aria-hidden="true">GF</span>
+            <img class="brand-logo" data-brand-logo alt="" hidden />
+            <span class="brand-mark" data-brand-initials aria-hidden="true">GF</span>
             <div class="brand-copy">
-              <span class="brand-name">GRANT</span>
-              <span class="brand-subtitle">Fashion</span>
+              <span class="brand-name" data-brand-name>Grant</span>
+              <span class="brand-subtitle" data-brand-tagline>Fashion</span>
             </div>
           </a>
 
@@ -119,7 +123,7 @@
                   <span class="card-tag">Since 2023</span>
                 </div>
                 <div class="visual-card visual-card-small">
-                    <span>Grant Fashion</span>
+                    <span data-brand-copy>Grant Fashion</span>
                 </div>
               </div>
             </div>
@@ -207,7 +211,7 @@
         <div class="container-xl">
           <div class="inquiry-panel">
             <div>
-              <p class="eyebrow">Contact Grant Fashion</p>
+              <p class="eyebrow" data-brand-copy>Contact Grant Fashion</p>
               <h2>Questions about a collection?</h2>
             </div>
             <a class="btn btn-primary btn-cta" href="pages/contact.html">Contact us</a>
@@ -221,10 +225,11 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-4">
             <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Grant Fashion home">
-              <span class="brand-mark" aria-hidden="true">GF</span>
+              <img class="brand-logo" data-brand-logo alt="" hidden />
+              <span class="brand-mark" data-brand-initials aria-hidden="true">GF</span>
               <div class="brand-copy">
-                <span class="brand-name">GRANT</span>
-                <span class="brand-subtitle">Fashion</span>
+                <span class="brand-name" data-brand-name>Grant</span>
+                <span class="brand-subtitle" data-brand-tagline>Fashion</span>
               </div>
             </a>
           </div>
@@ -243,6 +248,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/brand.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

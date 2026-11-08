@@ -11,6 +11,9 @@
       content="Browse Grant Fashion's magauni and gown collection."
     />
     <title>Magauni & Gowns | Grant Fashion</title>
+    <meta property="og:site_name" content="Grant Fashion" />
+    <meta property="og:title" content="Magauni &amp; Gowns | Grant Fashion" />
+    <meta property="og:description" content="Browse Grant Fashion's magauni and gown collection." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,10 +35,11 @@
       <nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-4 py-3">
         <div class="container-xl">
           <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html" aria-label="Grant Fashion home">
-            <span class="brand-mark" aria-hidden="true">GF</span>
+            <img class="brand-logo" data-brand-logo alt="" hidden />
+            <span class="brand-mark" data-brand-initials aria-hidden="true">GF</span>
             <div class="brand-copy">
-              <span class="brand-name">GRANT</span>
-              <span class="brand-subtitle">Fashion</span>
+              <span class="brand-name" data-brand-name>Grant</span>
+              <span class="brand-subtitle" data-brand-tagline>Fashion</span>
             </div>
           </a>
 
@@ -89,7 +93,7 @@
           <div class="page-hero-inner">
             <p class="eyebrow">Collection</p>
             <h1>Magauni / Gowns</h1>
-            <p data-collection-description="magauni">
+            <p data-collection-description="magauni" data-brand-copy>
               Explore Grant Fashion's Magauni and Gowns collection.
             </p>
           </div>
@@ -108,10 +112,11 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-4">
             <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
-              <span class="brand-mark" aria-hidden="true">GF</span>
+              <img class="brand-logo" data-brand-logo alt="" hidden />
+              <span class="brand-mark" data-brand-initials aria-hidden="true">GF</span>
               <div class="brand-copy">
-                <span class="brand-name">GRANT</span>
-                <span class="brand-subtitle">Fashion</span>
+                <span class="brand-name" data-brand-name>Grant</span>
+                <span class="brand-subtitle" data-brand-tagline>Fashion</span>
               </div>
             </a>
           </div>
@@ -130,6 +135,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/brand.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>
 </html>

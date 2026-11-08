@@ -3,6 +3,17 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../app/admin-auth.php';
 start_app_session();
+$brandName = 'Grant Fashion';
+$brandLogo = null;
+$brandInitials = 'GF';
+try {
+    $brand = brand_identity();
+    $brandName = $brand['name'];
+    $brandInitials = $brand['initials'];
+    $brandLogo = brand_logo_url($brand['logo_id']);
+} catch (Throwable $error) {
+    app_log('Brand identity unavailable on password reset page: ' . $error->getMessage());
+}
 $notice = '';
 $noticeType = 'error';
 
@@ -61,8 +72,8 @@ try {
 ?>
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reset password | Usimamizi — Grant Fashion</title><link rel="stylesheet" href="/assets/css/admin.css"></head>
-<body class="login-page"><main class="login-card"><a class="admin-brand" href="/admin/login.php">GRANT FASHION <span>Usimamizi</span></a>
+<title>Reset password | Usimamizi — <?= escape_html($brandName) ?></title><link rel="stylesheet" href="/assets/css/admin.css"><script src="/assets/js/brand.js" defer></script></head>
+<body class="login-page"><main class="login-card"><a class="admin-brand" href="/admin/login.php"><span class="admin-brand-mark" data-brand-initials aria-hidden="true"><?= escape_html($brandInitials) ?></span><?= $brandLogo !== null ? '<img class="admin-brand-logo" data-brand-image src="' . escape_html($brandLogo) . '" alt="' . escape_html($brandName . ' logo') . '" hidden>' : '' ?><span class="admin-brand-name"><?= escape_html($brandName) ?></span> <span class="admin-brand-subtitle">Usimamizi</span></a>
 <h1>Reset administrator password</h1>
 <?php if ($notice !== ''): ?><p class="notice notice-<?= escape_html($noticeType) ?>" role="status"><?= escape_html($notice) ?></p><?php endif; ?>
 <form method="post" action="/admin/reset-password.php"><?= csrf_field() ?>

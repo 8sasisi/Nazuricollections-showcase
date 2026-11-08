@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/brand.php';
 
 function csrf_token(): string
 {
@@ -118,12 +119,21 @@ function audit_log(?int $userId, string $action, ?string $entityType = null, ?in
 function admin_page(string $title, string $content): void
 {
     $admin = current_admin();
+    $brand = brand_identity();
     $safeTitle = escape_html($title);
-    $safeName = escape_html($admin['name'] ?? 'Administrator');
+    $safeBrandName = escape_html($brand['name']);
+    $adminLabel = mb_strtolower($brand['name'] . ' Administrator', 'UTF-8');
+    $adminLabel = mb_strtoupper(mb_substr($adminLabel, 0, 1, 'UTF-8'), 'UTF-8')
+        . mb_substr($adminLabel, 1, null, 'UTF-8');
+    $safeAdminLabel = escape_html($adminLabel);
+    $logoUrl = brand_logo_url($brand['logo_id']);
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'
-        . $safeTitle . ' | Usimamizi — Grant Fashion</title><link rel="stylesheet" href="/assets/css/admin.css"><script src="/assets/js/admin.js" defer></script></head><body>';
-    echo '<header class="admin-header"><a href="/admin/dashboard.php" class="admin-brand">GRANT FASHION <span>Usimamizi</span></a><div class="admin-user">'
-        . $safeName . '<form action="/admin/logout.php" method="post">' . csrf_field()
+        . $safeTitle . ' | Usimamizi — ' . $safeBrandName . '</title><link rel="stylesheet" href="/assets/css/admin.css"><script src="/assets/js/brand.js" defer></script><script src="/assets/js/admin.js" defer></script></head><body>';
+    echo '<header class="admin-header"><a href="/admin/dashboard.php" class="admin-brand">'
+        . '<span class="admin-brand-mark" data-brand-initials aria-hidden="true">' . escape_html($brand['initials']) . '</span>'
+        . ($logoUrl !== null ? '<img class="admin-brand-logo" data-brand-image src="' . escape_html($logoUrl) . '" alt="' . $safeBrandName . ' logo" hidden>' : '')
+        . '<span class="admin-brand-name">' . $safeBrandName . '</span><span class="admin-brand-subtitle">Usimamizi</span></a><div class="admin-user">'
+        . $safeAdminLabel . '<form action="/admin/logout.php" method="post">' . csrf_field()
         . '<button class="button button-quiet" type="submit">Sign out</button></form></div></header>';
     echo '<div class="admin-shell"><nav class="admin-nav" aria-label="Administration">';
     $links = [
@@ -132,6 +142,7 @@ function admin_page(string $title, string $content): void
         'collections.manage' => ['/admin/collections.php', 'Collections'],
         'media.manage' => ['/admin/media.php', 'Photographs'],
         'content.manage' => ['/admin/content.php', 'Website content'],
+        'brand.manage' => ['/admin/brand-identity.php', 'Brand Identity'],
         'settings.manage' => ['/admin/settings.php', 'Contact settings'],
         'users.manage' => ['/admin/users.php', 'Administrators'],
         'audit.view' => ['/admin/activity-logs.php', 'Activity logs'],

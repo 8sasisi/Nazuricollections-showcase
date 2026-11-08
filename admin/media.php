@@ -57,10 +57,12 @@ try {
                 throw new RuntimeException('Choose a valid image.');
             }
             $lookup = $pdo->prepare(
-                'SELECT m.stored_name,
+                "SELECT m.stored_name,
                     EXISTS(SELECT 1 FROM homepage_sections h WHERE h.media_id = m.id)
-                    OR EXISTS(SELECT 1 FROM collections c WHERE c.media_id = m.id) AS assigned
-                 FROM media m WHERE m.id = :id'
+                    OR EXISTS(SELECT 1 FROM collections c WHERE c.media_id = m.id)
+                    OR EXISTS(SELECT 1 FROM site_settings s
+                              WHERE s.setting_key = 'brand_logo' AND s.setting_value = CAST(m.id AS CHAR)) AS assigned
+                 FROM media m WHERE m.id = :id"
             );
             $lookup->execute(['id' => $id]);
             $media = $lookup->fetch();
@@ -79,10 +81,12 @@ try {
     }
 
     $images = database()->query(
-        'SELECT m.id, m.alt_text, m.mime_type, m.byte_size, m.width, m.height, m.stored_name,
+        "SELECT m.id, m.alt_text, m.mime_type, m.byte_size, m.width, m.height, m.stored_name,
             (SELECT h.section_key FROM homepage_sections h WHERE h.media_id = m.id LIMIT 1) AS section_key,
-            (SELECT c.name FROM collections c WHERE c.media_id = m.id LIMIT 1) AS collection_name
-         FROM media m ORDER BY m.created_at DESC LIMIT 200'
+            (SELECT c.name FROM collections c WHERE c.media_id = m.id LIMIT 1) AS collection_name,
+            (SELECT 'Brand logo' FROM site_settings s
+             WHERE s.setting_key = 'brand_logo' AND s.setting_value = CAST(m.id AS CHAR) LIMIT 1) AS brand_label
+         FROM media m ORDER BY m.created_at DESC LIMIT 200"
     )->fetchAll();
     $body = $notice !== '' ? '<p class="notice">' . escape_html($notice) . '</p>' : '';
     $body .= '<section class="panel"><h2>Upload a photograph</h2><p>JPEG, PNG, or WebP only; maximum 5 MB and 16 megapixels. The server decodes and re-encodes each image.</p>'
@@ -97,7 +101,7 @@ try {
         $body .= '<p>No images have been uploaded.</p>';
     }
     foreach ($images as $image) {
-        $location = $image['section_key'] ?: $image['collection_name'] ?: 'Unassigned';
+        $location = $image['brand_label'] ?: $image['section_key'] ?: $image['collection_name'] ?: 'Unassigned';
         $body .= '<article class="product-editor"><img class="admin-product-preview" src="/api/admin-media.php?source=library&id=' . (int) $image['id'] . '" alt="' . escape_html($image['alt_text']) . '">'
             . '<p><strong>' . escape_html($image['alt_text']) . '</strong><br>' . escape_html($image['mime_type']) . ' · '
             . (int) $image['width'] . ' × ' . (int) $image['height'] . ' px · ' . number_format((int) $image['byte_size']) . ' bytes · '

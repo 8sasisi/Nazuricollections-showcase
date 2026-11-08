@@ -23,6 +23,74 @@ function buildWhatsAppUrl(number, message = "") {
   return url.href;
 }
 
+function applyBrandIdentity(identity = {}) {
+  const name = typeof identity.name === "string" && identity.name.trim()
+    ? identity.name.trim()
+    : "Grant Fashion";
+  const tagline = typeof identity.tagline === "string" ? identity.tagline.trim() : "";
+  const description = typeof identity.description === "string" ? identity.description.trim() : "";
+  const defaultWordmark = name === "Grant Fashion" && !tagline;
+  const displayedName = defaultWordmark ? "Grant" : name;
+  const displayedTagline = defaultWordmark ? "Fashion" : tagline;
+  const initials = typeof identity.initials === "string" && identity.initials.length === 2
+    ? identity.initials
+    : window.brandInitials(name);
+  const replaceBrand = (value) => String(value).replace(/Grant Fashion/gi, name);
+
+  document.querySelectorAll("[data-brand-name]").forEach((element) => {
+    element.textContent = displayedName;
+  });
+  document.querySelectorAll("[data-brand-tagline]").forEach((element) => {
+    element.textContent = displayedTagline;
+    element.hidden = !displayedTagline;
+  });
+  document.querySelectorAll("[data-brand-copy]").forEach((element) => {
+    element.textContent = replaceBrand(element.textContent);
+  });
+  document.querySelectorAll("[data-brand-connect]").forEach((element) => {
+    element.textContent = `Connect with ${name}`;
+  });
+  document.querySelectorAll("[aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", replaceBrand(element.getAttribute("aria-label")));
+  });
+
+  const logoUrl = typeof identity.logo === "string" ? identity.logo : "";
+  let safeLogoUrl = "";
+  if (logoUrl) {
+    try {
+      const url = new URL(logoUrl, window.location.origin);
+      if (url.origin === window.location.origin && url.pathname === "/api/media.php") {
+        safeLogoUrl = url.href;
+      }
+    } catch {
+      safeLogoUrl = "";
+    }
+  }
+  document.querySelectorAll("[data-brand-logo]").forEach((image) => {
+    const mark = image.parentElement?.querySelector("[data-brand-initials]");
+    if (mark) mark.textContent = initials;
+    image.alt = `${name} logo`;
+    if (safeLogoUrl) image.src = safeLogoUrl;
+    else image.removeAttribute("src");
+    window.syncBrandLogo(image);
+  });
+
+  document.querySelectorAll("[data-brand-description]").forEach((element) => {
+    element.textContent = description;
+    element.hidden = !description;
+  });
+  document.title = replaceBrand(document.title);
+  document.querySelectorAll('meta[name="description"], meta[property="og:description"]').forEach((meta) => {
+    meta.content = description || replaceBrand(meta.content);
+  });
+  document.querySelectorAll('meta[property="og:site_name"]').forEach((meta) => {
+    meta.content = name;
+  });
+  document.querySelectorAll('meta[property="og:title"]').forEach((meta) => {
+    meta.content = replaceBrand(meta.content);
+  });
+}
+
 function updateContactLinks(settings = {}) {
   document.querySelectorAll("[data-setting-link]").forEach((link) => {
     const setting = link.dataset.settingLink;
@@ -184,14 +252,18 @@ async function loadSiteContent() {
     if (!response.ok) throw new Error("Site content request failed");
     const content = await response.json();
     updateEditableCopy(content);
+    applyBrandIdentity(content.brand);
     updateContactLinks(content.settings || {});
-    return content.settings || {};
+    return {
+      settings: content.settings || {},
+      brandName: content.brand?.name || "Grant Fashion"
+    };
   } catch {
     document.querySelectorAll("[data-content-status]").forEach((element) => {
       element.textContent = "Some website information is temporarily unavailable.";
     });
     updateContactLinks();
-    return {};
+    return { settings: {}, brandName: "Grant Fashion" };
   }
 }
 
@@ -223,7 +295,7 @@ async function loadProducts() {
   }));
 }
 
-function initContactForm(settings) {
+function initContactForm(settings, brandName = "Grant Fashion") {
   const form = document.querySelector(".contact-form");
   if (!form) return;
   form.addEventListener("submit", (event) => {
@@ -248,15 +320,15 @@ function initContactForm(settings) {
       return;
     }
     const fullName = [firstName, lastName].filter(Boolean).join(" ");
-    const whatsappMessage = `Hello Grant Fashion, my name is ${fullName}.${email ? ` Email: ${email}` : ""}\n\n${message}`;
+    const whatsappMessage = `Hello ${brandName}, my name is ${fullName}.${email ? ` Email: ${email}` : ""}\n\n${message}`;
     window.open(buildWhatsAppUrl(number, whatsappMessage), "_blank", "noopener,noreferrer");
   });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   initMobileMenuFallback();
-  const [settings] = await Promise.all([loadSiteContent(), loadProducts()]);
-  initContactForm(settings);
+  const [site] = await Promise.all([loadSiteContent(), loadProducts()]);
+  initContactForm(site.settings, site.brandName);
 });
 
 function initMobileMenuFallback() {

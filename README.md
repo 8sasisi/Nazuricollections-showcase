@@ -46,9 +46,10 @@ node --check assets\js\admin.js
 
    ```powershell
    mysql -u root -p grant_fashion < database\migrations\001_initial_schema.sql
+   mysql -u root -p grant_fashion < database\migrations\002_brand_identity.sql
    ```
 
-   The migration creates roles and permissions, products and media, editable content, administrator accounts, security events, rate-limit data, and reset-token storage. It inserts no administrator credentials.
+   The migrations create roles and permissions, products and media, editable content, administrator accounts, security events, rate-limit data, reset-token storage, and brand identity settings. They insert no administrator credentials. Apply later migrations in numeric order when updating an existing installation.
 4. Create a private configuration file **outside the project directory and outside the web root**, for example `C:\wamp64\private\grant-fashion.env`. Start from `.env.example`, replace the database values, and generate a random encryption key:
 
    ```powershell
@@ -74,7 +75,7 @@ node --check assets\js\admin.js
    ```
 
    Replace the placeholder email and display name with the authorized administrator's details. Do not retain, publish, or reuse the initial password. The script refuses to create the first user with any role other than Super Administrator.
-7. Open the configured virtual host. Public pages use the site at `/`; sign in to Usimamizi at `/admin/login.php`. Add verified contact information and genuine product details and photographs in the dashboard. Prices remain hidden on the public site unless an ISO 4217 currency code is also configured.
+7. Open the configured virtual host. Public pages use the site at `/`; sign in to Usimamizi at `/admin/login.php`. Manage the public name, tagline, description, and logo under **Brand Identity**. Add verified contact information and genuine product details and photographs in the dashboard. Prices remain hidden on the public site unless an ISO 4217 currency code is also configured.
 8. Enable HTTPS before production and verify Apache headers, `.htaccess` restrictions, uploads, and backups from outside the server. PHP's built-in development server does not enforce `.htaccess` and must not be used to serve the project as a substitute for the protected Apache setup.
 
 ## Administrator recovery

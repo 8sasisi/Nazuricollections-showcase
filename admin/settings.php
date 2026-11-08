@@ -108,7 +108,8 @@ try {
         }
         $body .= '</ul></section>';
     }
-    $body .= '<section class="panel"><h2>Business contact information</h2><p>Leave a field blank until the official Grant Fashion detail is verified.</p>'
+    $brandName = brand_identity()['name'];
+    $body .= '<section class="panel"><h2>Business contact information</h2><p>Leave a field blank until the official ' . escape_html($brandName) . ' detail is verified.</p>'
         . '<form method="post" action="/admin/settings.php">' . csrf_field() . '<input type="hidden" name="action" value="save_settings"><div class="form-grid">'
         . setting_input('business_phone', 'Business phone', $settings['business_phone'] ?? '', 'tel')
         . setting_input('business_whatsapp', 'WhatsApp number (international digits)', $settings['business_whatsapp'] ?? '', 'tel')
@@ -120,9 +121,10 @@ try {
     if (!$totpEnabled && $pendingSecret === null) {
         $body .= '<form method="post" action="/admin/settings.php">' . csrf_field() . '<input type="hidden" name="action" value="begin_totp"><button class="button button-secondary" type="submit">Set up authenticator</button></form>';
     } elseif (!$totpEnabled) {
-        $issuer = rawurlencode('Grant Fashion: ' . $admin['email']);
+        $brandName = brand_identity()['name'];
+        $issuer = rawurlencode($brandName . ': ' . $admin['email']);
         $body .= '<p>Enter this secret in your authenticator app: <code>' . escape_html($pendingSecret) . '</code></p>'
-            . '<p class="muted">Provisioning URI: <code>' . escape_html('otpauth://totp/' . $issuer . '?secret=' . $pendingSecret . '&issuer=Grant%20Fashion') . '</code></p>'
+            . '<p class="muted">Provisioning URI: <code>' . escape_html('otpauth://totp/' . $issuer . '?secret=' . $pendingSecret . '&issuer=' . rawurlencode($brandName)) . '</code></p>'
             . '<form method="post" action="/admin/settings.php">' . csrf_field() . '<input type="hidden" name="action" value="verify_totp">'
             . '<label for="totp_code">Current six-digit code</label><input id="totp_code" name="totp_code" inputmode="numeric" maxlength="6" required>'
             . '<button class="button button-primary" type="submit">Verify and enable</button></form>';

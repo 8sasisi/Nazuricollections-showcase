@@ -39,6 +39,7 @@ a {
 .admin-brand {
   display: inline-flex;
   flex-direction: column;
+  overflow-wrap: anywhere;
   font-family: Georgia, serif;
   font-size: 1.2rem;
   font-weight: 700;
@@ -46,11 +47,36 @@ a {
   text-decoration: none;
 }
 
-.admin-brand span {
+.admin-brand-subtitle {
   color: var(--admin-gold);
   font: 600 0.7rem Arial, sans-serif;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.admin-brand-name {
+  color: var(--admin-surface);
+  overflow-wrap: anywhere;
+}
+
+.admin-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--admin-surface);
+  color: var(--admin-ink);
+  font: 700 1rem Georgia, serif;
+  letter-spacing: 0.04em;
+}
+
+.admin-brand-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
 }
 
 .admin-user,
@@ -287,6 +313,60 @@ th {
   margin: 1rem 0 0.5rem;
   border-radius: 0.5rem;
   object-fit: cover;
+}
+
+.brand-preview {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.brand-preview .admin-product-preview {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  object-fit: contain;
+}
+
+.brand-logo-frame {
+  position: relative;
+  display: inline-flex;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
+}
+
+.brand-preview .brand-mark,
+.brand-preview-image {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  border-radius: 50%;
+}
+
+.brand-preview .brand-mark {
+  font-size: 2rem;
+}
+
+.brand-preview-image {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+}
+
+.brand-preview strong {
+  font: 600 1.5rem Georgia, serif;
+}
+
+.brand-confirm {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-confirm input {
+  width: auto;
+  margin: 0;
 }
 
 .user-update-form {

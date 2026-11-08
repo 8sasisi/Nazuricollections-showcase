@@ -2,8 +2,10 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../app/bootstrap.php';
+require_once __DIR__ . '/../app/brand.php';
 
 try {
+    $brand = brand_identity();
     $sections = database()->query(
         'SELECT h.section_key, h.heading, h.body, h.button_label, h.button_url,
                 h.media_id, m.alt_text AS image_alt
@@ -42,6 +44,13 @@ try {
         $collectionMap[$collection['slug']] = $collection;
     }
     json_response([
+        'brand' => [
+            'name' => $brand['name'],
+            'initials' => $brand['initials'],
+            'tagline' => $brand['tagline'],
+            'description' => $brand['description'],
+            'logo' => brand_logo_url($brand['logo_id']),
+        ],
         'sections' => $sectionMap,
         'collections' => $collectionMap,
         'settings' => $settingMap,

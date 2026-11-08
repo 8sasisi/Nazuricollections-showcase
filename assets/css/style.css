@@ -101,9 +101,18 @@ p {
   font-weight: 700;
 }
 
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
 .brand-copy {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: min(55vw, 24rem);
   line-height: 1.05;
 }
 
@@ -112,6 +121,26 @@ p {
   display: block;
   font-size: 1.15rem;
   font-weight: 600;
+}
+
+.brand-name,
+.brand-subtitle,
+[data-brand-copy],
+[data-brand-connect],
+[data-brand-description] {
+  white-space: normal;
+}
+
+.brand-name {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.brand-subtitle,
+[data-brand-copy],
+[data-brand-connect],
+[data-brand-description] {
+  overflow-wrap: anywhere;
 }
 
 .brand-subtitle {

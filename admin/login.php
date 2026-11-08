@@ -3,6 +3,17 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../app/admin-auth.php';
 start_app_session();
+$brandName = 'Grant Fashion';
+$brandLogo = null;
+$brandInitials = 'GF';
+try {
+    $brand = brand_identity();
+    $brandName = $brand['name'];
+    $brandInitials = $brand['initials'];
+    $brandLogo = brand_logo_url($brand['logo_id']);
+} catch (Throwable $error) {
+    app_log('Brand identity unavailable on sign-in page: ' . $error->getMessage());
+}
 
 if (current_admin()) {
     header('Location: /admin/dashboard.php');
@@ -76,12 +87,13 @@ try {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign in | Usimamizi — Grant Fashion</title>
+  <title>Sign in | Usimamizi — <?= escape_html($brandName) ?></title>
   <link rel="stylesheet" href="/assets/css/admin.css">
+  <script src="/assets/js/brand.js" defer></script>
 </head>
 <body class="login-page">
   <main class="login-card">
-    <a class="admin-brand" href="/">GRANT FASHION <span>Usimamizi</span></a>
+    <a class="admin-brand" href="/"><span class="admin-brand-mark" data-brand-initials aria-hidden="true"><?= escape_html($brandInitials) ?></span><?= $brandLogo !== null ? '<img class="admin-brand-logo" data-brand-image src="' . escape_html($brandLogo) . '" alt="' . escape_html($brandName . ' logo') . '" hidden>' : '' ?><span class="admin-brand-name"><?= escape_html($brandName) ?></span> <span class="admin-brand-subtitle">Usimamizi</span></a>
     <h1>Administrator sign in</h1>
     <p>Access is limited to authorized administrators.</p>
     <?php if ($errorMessage !== ''): ?>

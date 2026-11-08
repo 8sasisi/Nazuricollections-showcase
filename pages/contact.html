@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; connect-src 'self'; object-src 'none'; upgrade-insecure-requests" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; object-src 'none'" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
     <meta
       name="description"
-      content="Contact Grant Fashions for styling enquiries, custom requests, and collection availability."
+      content="Contact Grant Fashion for verified business contact information."
     />
-    <title>Contact | Grant Fashions</title>
+    <title>Contact | Grant Fashion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,11 +31,11 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-4 py-3">
         <div class="container-xl">
-          <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html" aria-label="Grant Fashions home">
-            <span class="brand-mark" aria-hidden="true">G</span>
+          <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html" aria-label="Grant Fashion home">
+            <span class="brand-mark" aria-hidden="true">GF</span>
             <div class="brand-copy">
               <span class="brand-name">GRANT</span>
-              <span class="brand-subtitle">Fashions</span>
+              <span class="brand-subtitle">Fashion</span>
             </div>
           </a>
 
@@ -88,7 +88,7 @@
         <div class="container-xl">
           <div class="page-hero-inner narrow">
             <p class="eyebrow">Contact</p>
-            <h1>Let’s find your next signature look.</h1>
+            <h1 data-page-title="contact">Contact Grant Fashion</h1>
           </div>
         </div>
       </section>
@@ -97,32 +97,40 @@
         <div class="container-xl">
           <div class="row g-5">
             <div class="col-lg-5">
+              <p data-page-content="contact" class="muted">Official contact details will be added by an administrator.</p>
               <div class="contact-panel">
                 <h2>Connect with Grant</h2>
                 <ul class="contact-list">
                   <li>
+                    <i class="bi bi-telephone"></i>
+                    <a data-setting-link="business_phone" href="#" hidden>Call Grant Fashion</a>
+                  </li>
+                  <li>
                     <i class="bi bi-whatsapp"></i>
-                    <a href="https://wa.me/255767557234" target="_blank" rel="noreferrer">WhatsApp</a>
+                    <a data-setting-link="business_whatsapp" href="#" hidden>WhatsApp</a>
                   </li>
                   <li>
                     <i class="bi bi-instagram"></i>
-                    <a href="https://www.instagram.com/nazuri_collections?rpxt=MTAxbjE5YnJ2ejRicw==" target="_blank" rel="noreferrer">Instagram</a>
+                    <a data-setting-link="instagram_url" href="#" hidden>Instagram</a>
                   </li>
                   <li>
                     <i class="bi bi-tiktok"></i>
-                    <a href="https://www.tiktok.com/@nazuri.collections?_r=1&_t=ZS-9B3DpKO2bY7" target="_blank" rel="noreferrer">TikTok</a>
+                    <a data-setting-link="tiktok_url" href="#" hidden>TikTok</a>
                   </li>
                 </ul>
+                <p data-contact-unavailable role="status">Official contact details will be added by an administrator.</p>
+                <p data-setting-text="business_phone" hidden></p>
               </div>
             </div>
             <div class="col-lg-7">
               <div class="contact-form-wrap">
                 <h3>Send an inquiry</h3>
-                <form class="contact-form" action="https://wa.me/255767557234" method="GET" target="_blank" rel="noreferrer">
+                <form class="contact-form" action="#" method="post">
+                  <noscript><p class="empty-state">Enable JavaScript to prepare an inquiry. No information is sent by this form.</p></noscript>
                   <div class="row g-3">
                     <div class="col-md-6">
                       <label for="firstName">First name</label>
-                      <input id="firstName" name="firstName" type="text" placeholder="Your first name" />
+                      <input id="firstName" name="firstName" type="text" placeholder="Your first name" required />
                     </div>
                     <div class="col-md-6">
                       <label for="lastName">Last name</label>
@@ -134,11 +142,12 @@
                     </div>
                     <div class="col-12">
                       <label for="message">Message</label>
-                      <textarea id="message" name="message" rows="5" placeholder="Tell us what you are looking for"></textarea>
+                      <textarea id="message" name="message" rows="5" placeholder="Tell us what you are looking for" required></textarea>
                     </div>
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary btn-cta">Send via WhatsApp</button>
                     </div>
+                    <div class="col-12"><p data-contact-feedback class="empty-state" role="status" hidden></p></div>
                   </div>
                 </form>
               </div>
@@ -153,10 +162,10 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-4">
             <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
-              <span class="brand-mark" aria-hidden="true">G</span>
+              <span class="brand-mark" aria-hidden="true">GF</span>
               <div class="brand-copy">
                 <span class="brand-name">GRANT</span>
-                <span class="brand-subtitle">Fashions</span>
+                <span class="brand-subtitle">Fashion</span>
               </div>
             </a>
           </div>
@@ -165,9 +174,9 @@
           </div>
           <div class="col-lg-4 text-lg-end">
             <div class="social-links">
-              <a href="https://www.instagram.com/nazuri_collections?rpxt=MTAxbjE5YnJ2ejRicw==" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.tiktok.com/@nazuri.collections?_r=1&_t=ZS-9B3DpKO2bY7" target="_blank" rel="noreferrer" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-              <a href="https://wa.me/255767557234" target="_blank" rel="noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              <a data-setting-link="instagram_url" href="#" aria-label="Instagram" hidden><i class="bi bi-instagram"></i></a>
+              <a data-setting-link="tiktok_url" href="#" aria-label="TikTok" hidden><i class="bi bi-tiktok"></i></a>
+              <a data-setting-link="business_whatsapp" href="#" aria-label="WhatsApp" hidden><i class="bi bi-whatsapp"></i></a>
             </div>
           </div>
         </div>

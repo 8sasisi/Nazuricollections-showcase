@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; connect-src 'self'; object-src 'none'; upgrade-insecure-requests" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self'; object-src 'none'" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
     <meta
       name="description"
-      content="Grant Fashions offers premium abayas and gowns with timeless elegance and contemporary modest fashion styling."
+      content="Grant Fashion presents premium abayas and gowns in town. Since 2023."
     />
-    <title>Grant Fashions | Premium Abayas and Gowns</title>
+    <title>Grant Fashion | Premium Abayas and Gowns</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,11 +31,11 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-4 py-3">
         <div class="container-xl">
-          <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Grant Fashions home">
-            <span class="brand-mark" aria-hidden="true">G</span>
+          <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Grant Fashion home">
+            <span class="brand-mark" aria-hidden="true">GF</span>
             <div class="brand-copy">
               <span class="brand-name">GRANT</span>
-              <span class="brand-subtitle">Fashions</span>
+              <span class="brand-subtitle">Fashion</span>
             </div>
           </a>
 
@@ -89,12 +89,12 @@
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 content-column">
               <p class="eyebrow">Since 2023</p>
-              <h1>Elegance in Every Detail.</h1>
-              <p class="hero-copy">
+              <h1 data-content="hero.heading">Elegance in Every Detail.</h1>
+              <p class="hero-copy" data-content="hero.body">
                 Discover timeless styles designed to make every moment elegant.
               </p>
               <div class="hero-actions">
-                <a class="btn btn-primary btn-cta" href="pages/abayas.html">Explore Collection</a>
+                <a class="btn btn-primary btn-cta" data-content="hero.button_label" href="pages/abayas.html">Explore Collection</a>
                 <a class="btn btn-secondary" href="pages/contact.html">Inquire Now</a>
               </div>
               <div class="hero-metrics">
@@ -114,11 +114,12 @@
             </div>
             <div class="col-lg-6">
               <div class="editorial-visual" aria-label="Editorial fashion placeholder artwork">
+                <img class="editorial-image" data-media-section="hero" alt="" hidden />
                 <div class="visual-card visual-card-large">
-                  <span class="card-tag">New Season</span>
+                  <span class="card-tag">Since 2023</span>
                 </div>
                 <div class="visual-card visual-card-small">
-                  <span>Refined layers</span>
+                    <span>Grant Fashion</span>
                 </div>
               </div>
             </div>
@@ -130,18 +131,19 @@
         <div class="container-xl">
           <div class="section-heading centered">
             <p class="eyebrow text-center">Featured collections</p>
-            <h2>Designed for confidence and elegance</h2>
+            <h2>Explore the collections</h2>
           </div>
           <div class="row g-4">
             <div class="col-md-6">
               <article class="feature-card feature-card-abaya">
                 <div class="feature-image image-abaya">
+                  <img data-media-collection="abayas" alt="" hidden />
                   <span>Abayas</span>
                 </div>
                 <div class="feature-content">
-                  <p class="eyebrow small">Signature silhouettes</p>
-                  <h3>Minimal, elevated essentials</h3>
-                  <p>Clean lines and refined details for effortless sophistication.</p>
+                  <p class="eyebrow small">Collection</p>
+                  <h3>Abayas</h3>
+                  <p data-collection-description="abayas"></p>
                   <a href="pages/abayas.html" class="text-link">View abayas <i class="bi bi-arrow-right"></i></a>
                 </div>
               </article>
@@ -149,12 +151,13 @@
             <div class="col-md-6">
               <article class="feature-card feature-card-gown">
                 <div class="feature-image image-gown">
+                  <img data-media-collection="magauni" alt="" hidden />
                   <span>Magauni / Gowns</span>
                 </div>
                 <div class="feature-content">
-                  <p class="eyebrow small">Occasion wear</p>
-                  <h3>Graceful statement pieces</h3>
-                  <p>Soft drape, polished tailoring, and expressive elegance.</p>
+                  <p class="eyebrow small">Collection</p>
+                  <h3>Magauni / Gowns</h3>
+                  <p data-collection-description="magauni"></p>
                   <a href="pages/magauni.html" class="text-link">View gowns <i class="bi bi-arrow-right"></i></a>
                 </div>
               </article>
@@ -167,57 +170,14 @@
         <div class="container-xl">
           <div class="section-heading d-flex justify-content-between align-items-end flex-wrap gap-3">
             <div>
-              <p class="eyebrow">Curated favourites</p>
-              <h2>Selected pieces for the season</h2>
+              <p class="eyebrow">Featured products</p>
+              <h2>Discover the collections</h2>
             </div>
             <a href="pages/abayas.html" class="text-link">Browse all <i class="bi bi-arrow-right"></i></a>
           </div>
 
-          <div class="row g-4 product-grid">
-            <div class="col-sm-6 col-lg-3">
-              <article class="product-card">
-                <div class="product-image image-placeholder image-sand" aria-label="Product image placeholder"></div>
-                <div class="product-body">
-                  <p class="category">Abaya</p>
-                  <h3>Eden Abaya</h3>
-                  <p class="meta">Soft flow, warm neutrals</p>
-                  <a href="pages/abayas.html" class="text-link">View details</a>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-              <article class="product-card">
-                <div class="product-image image-placeholder image-ivory" aria-label="Product image placeholder"></div>
-                <div class="product-body">
-                  <p class="category">Gown</p>
-                  <h3>Ivory Muse</h3>
-                  <p class="meta">Elegant drape, refined finish</p>
-                  <a href="pages/magauni.html" class="text-link">View details</a>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-              <article class="product-card">
-                <div class="product-image image-placeholder image-charcoal" aria-label="Product image placeholder"></div>
-                <div class="product-body">
-                  <p class="category">Evening</p>
-                  <h3>Noir Line</h3>
-                  <p class="meta">Statement silhouette</p>
-                  <a href="pages/magauni.html" class="text-link">View details</a>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-              <article class="product-card">
-                <div class="product-image image-placeholder image-gold" aria-label="Product image placeholder"></div>
-                <div class="product-body">
-                  <p class="category">Abaya</p>
-                  <h3>Maison Gold</h3>
-                  <p class="meta">Minimal accents, premium finish</p>
-                  <a href="pages/abayas.html" class="text-link">View details</a>
-                </div>
-              </article>
-            </div>
+          <div class="row g-4 product-grid" id="product-grid-home">
+            <p class="empty-state" role="status">Loading published products…</p>
           </div>
         </div>
       </section>
@@ -227,19 +187,17 @@
           <div class="row align-items-center g-5">
             <div class="col-lg-6">
               <div class="story-image" aria-label="Brand story placeholder illustration">
+                <img class="story-image-photo" data-media-section="brand_story" alt="" hidden />
                 <span>Premium style, thoughtfully curated</span>
               </div>
             </div>
             <div class="col-lg-6">
               <p class="eyebrow">Our story</p>
-              <h2>Fashion that feels polished, effortless, and personal.</h2>
+              <h2 data-content="brand_story.heading">Fashion that feels polished, effortless, and personal.</h2>
               <p>
-                Grant Fashions brings together refined modest fashion pieces designed for everyday elegance and special occasions alike.
+                <span data-content="brand_story.body">Premium abayas and gowns in town. Since 2023.</span>
               </p>
-              <p>
-                From clean abaya silhouettes to statement gowns, each design is selected to express confidence without compromise.
-              </p>
-              <a href="pages/about.html" class="btn btn-primary btn-cta">Learn More</a>
+              <a href="pages/about.html" class="btn btn-primary btn-cta" data-content="brand_story.button_label">Learn More</a>
             </div>
           </div>
         </div>
@@ -249,10 +207,10 @@
         <div class="container-xl">
           <div class="inquiry-panel">
             <div>
-              <p class="eyebrow">Let’s create your look</p>
-              <h2>Looking for something tailored to your occasion?</h2>
+              <p class="eyebrow">Contact Grant Fashion</p>
+              <h2>Questions about a collection?</h2>
             </div>
-            <a class="btn btn-primary btn-cta" href="pages/contact.html">Contact Grant</a>
+            <a class="btn btn-primary btn-cta" href="pages/contact.html">Contact us</a>
           </div>
         </div>
       </section>
@@ -262,11 +220,11 @@
       <div class="container-xl">
         <div class="row g-4 align-items-center">
           <div class="col-lg-4">
-            <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Grant Fashions home">
-              <span class="brand-mark" aria-hidden="true">G</span>
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Grant Fashion home">
+              <span class="brand-mark" aria-hidden="true">GF</span>
               <div class="brand-copy">
                 <span class="brand-name">GRANT</span>
-                <span class="brand-subtitle">Fashions</span>
+                <span class="brand-subtitle">Fashion</span>
               </div>
             </a>
           </div>
@@ -275,9 +233,9 @@
           </div>
           <div class="col-lg-4 text-lg-end">
             <div class="social-links" aria-label="Social media links">
-              <a href="https://www.instagram.com/nazuri_collections?rpxt=MTAxbjE5YnJ2ejRicw==" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.tiktok.com/@nazuri.collections?_r=1&_t=ZS-9B3DpKO2bY7" target="_blank" rel="noreferrer" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-              <a href="https://wa.me/255767557234" target="_blank" rel="noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              <a data-setting-link="instagram_url" href="#" aria-label="Instagram" hidden><i class="bi bi-instagram"></i></a>
+              <a data-setting-link="tiktok_url" href="#" aria-label="TikTok" hidden><i class="bi bi-tiktok"></i></a>
+              <a data-setting-link="business_whatsapp" href="#" aria-label="WhatsApp" hidden><i class="bi bi-whatsapp"></i></a>
             </div>
           </div>
         </div>

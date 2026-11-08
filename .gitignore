@@ -11,3 +11,13 @@ Thumbs.db
 
 # Local environment
 node_modules/
+.env
+.env.*
+!.env.example
+/config/local.php
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/media/*
+!/storage/media/.gitkeep
+/storage/backups/*
+!/storage/backups/.gitkeep
